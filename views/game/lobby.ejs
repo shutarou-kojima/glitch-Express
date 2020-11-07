@@ -1,0 +1,44 @@
+<%- include ('../header') %>
+<%- include ('../global_variables') %>
+
+<div class="content-wrapper">
+  <div class="main">
+    <H1>ようこそ！</H1>
+    <script src="/room_list_script.js"></script>
+
+
+    <h2><%= user.name %>さん！</h2>
+    <div class="room-list-wrapper">
+      <table class="room-list" id="room-list">
+
+        <% rooms = rooms.filter(Boolean) %>
+        <% for(var i=1; i<rooms.length; i++){ %>
+        <tr id="room<%= rooms[i].id %>">
+          <td><%= rooms[i].name %></td>
+          <td><a class="btn" href="/room/<%= rooms[i].id %>/enter">入室</a></td>
+          <td><span id="room<%= rooms[i].id %>Members"><%= rooms[i].membersId.length %></span> /
+            <%= rooms[i].maxMembers %>名</td>
+        </tr>
+        <% } %>
+      </table>
+    </div>
+    <p><a class="btn" href="/make">ルームを作る</a></p>
+    <!-- <p><a class="btn" href="/">TOPに戻る</a></p> -->
+  </div>
+
+
+
+  </script>
+
+  <!-- チャット -->
+  <div class="chat-wrapper">
+    <div class="chat">
+      <%- include ('../chat/chat_logs') %>
+
+      <script src="/chat_script.js"></script>
+    </div>
+  </div>
+
+</div>
+
+<%- include ('../chat/chat_footer') %>
