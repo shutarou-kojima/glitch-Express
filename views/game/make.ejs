@@ -1,0 +1,29 @@
+<%- include ('../header') %>
+<%- include ('../global_variables') %>
+
+<div class="content-wrapper">
+  <div class="main">
+    <form class="form" action="/make" method="POST">
+      <label for="name">ルーム名：</label>
+      <input class="text" type="text" name="roomName" value="ルーツ">
+      <input type="hidden" name="maxMembers" value="99">
+      <input type="hidden" name="userId" value="<%= user.id %>">
+      <input class="btn" type="submit" value="ルーム作成">
+      <input type="hidden" name="_csrf" value="<%= csrftoken %>">
+    </form>
+    <a href="/lobby">戻る</a>
+
+  </div>
+
+  <!-- チャット -->
+  <div class="chat-wrapper">
+    <div class="chat">
+      <%- include ('../chat/chat_logs') %>
+
+      <script src="/chat_script.js"></script>
+    </div>
+  </div>
+
+</div>
+
+<%- include ('../chat/chat_footer') %>

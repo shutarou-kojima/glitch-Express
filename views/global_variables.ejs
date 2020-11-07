@@ -1,0 +1,7 @@
+<script src='https://code.jquery.com/jquery-3.5.1.slim.min.js'></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socketIO = io.connect(),
+      room = <%- JSON.stringify(rooms[user.room.id]) %>,
+      user = <%- JSON.stringify(user) %>;
+</script>
