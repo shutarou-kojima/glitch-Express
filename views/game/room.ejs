@@ -1,0 +1,88 @@
+<%- include ('../header') %>
+<%- include ('../global_variables') %>
+
+<div class="content-wrapper">
+  <div class="main">
+
+    <div class="game-header">
+
+      <!-- 先攻　○ -->
+      <div class="player">
+        <div id="first-player">
+          <div class="player-symbol circle">〇</div>
+          <div class="player-name" id="circle-player-name">
+            未定
+          </div>
+          <div class="btn robot-participation" data-robot-id="-10" data-turn="0" id="first-robot-participation">
+            ロボット参戦
+          </div>
+        </div>
+      </div>
+
+      <div class="vs">v.s.</div>
+
+      <!-- 後攻　× -->
+      <div class="player">
+        <div id="second-player">
+          <div class="player-symbol cross">×</div>
+          <div class="player-name" id="cross-player-name">
+            未定
+          </div>
+          <div class="btn robot-participation" data-robot-id="-11" data-turn="1" id="second-robot-participation">
+            ロボット参戦
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 結果表示 -->
+    <div class="end" id="result"></div>
+
+    <div class="game-table">
+      <table class="ox">
+        <tr>
+          <td class="selectable" data-id="0" id="c0"></td>
+          <td class="selectable" data-id="1" id="c1"></td>
+          <td class="selectable" data-id="2" id="c2"></td>
+        </tr>
+        <tr>
+          <td class="selectable" data-id="3" id="c3"></td>
+          <td class="selectable" data-id="4" id="c4"></td>
+          <td class="selectable" data-id="5" id="c5"></td>
+        </tr>
+        <tr>
+          <td class="selectable" data-id="6" id="c6"></td>
+          <td class="selectable" data-id="7" id="c7"></td>
+          <td class="selectable" data-id="8" id="c8"></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="game-footer">
+
+      <!-- 再戦ボタン -->
+      <div class="end" id="rematch"></div>
+
+      <!-- 退出ボタン -->
+      <form id="exit" action="/room/<%= user.room.id %>/exit" method="GET">
+        <input class="btn" type="submit" value="退出">
+        <input type="hidden" name="_csrf" value="<%= csrftoken %>">
+      </form>
+
+      <script src="/ox_script.js"></script>
+    </div>
+  </div>
+
+  <!-- チャット -->
+  <div class="chat-wrapper">
+    <div class="chat">
+      <%- include ('../chat/chat_logs') %>
+
+      <script src="/chat_script.js"></script>
+    </div>
+  </div>
+
+</div>
+
+<%- include ('../chat/chat_footer') %>
