@@ -1,7 +1,7 @@
 ### 概要  
 ここでは、リアルタイムで出来るボードゲームのコードを紹介しています。
 
-[プレビュー](https://shutarou-kojima.github.io/Realtim-Boardgame/github-pages/preview.html)
+[プレビュー](https://treasure-steadfast-pudding.glitch.me/)
 
 
 ## Made by [Glitch](https://glitch.com/)
